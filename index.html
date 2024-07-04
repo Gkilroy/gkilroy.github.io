@@ -31,33 +31,54 @@
         <h1>Hobbies Website</h1>
         <p>Welcome to the wonderful world of Griffin's Hobbies!</p>
     </div>
+    <div id="demo" class="carousel slide" data-bs-ride="carousel"> 
 
-    <div class="container mt-5">
-      <div class="row">
-        <div class="col-sm-3">
-                <h3>List of Hobbies</h3>
-                <ul class="list-group">
-                    <li class="list-group-item">Travelling</li>
-                    <li class="list-group-item">Cooking</li>
-                    <li class="list-group-item">Cats</li>
-                  </ul>
-        </div>
-        <div class="col-sm-3">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+      </div>
+    
+      <!-- The slideshow/carousel -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="valley.JPG" alt="valley" class="mx-auto d-block" height="500">
+          <div class="carousel-caption">
             <h3>Travelling</h3>
-            <img src="valley.JPG" class="rounded" alt="valley" width="304" height="236">
-            <p> Some of the places I like to travel to.</p>
-
+            <p> The beautiful wilderness!</p>
+          </div>
         </div>
-        <div class="col-sm-3">
-            <h3> Cooking</h3>
-            <img src="pig.jpg" class="rounded" alt="pig" width="304" height="236">
-            <p> Things I like to cook.</p>
+        <div class="carousel-item">
+          <img src="pig.jpg" alt="pig" class="mx-auto d-block" height="500">
+          <div class="carousel-caption">
+            <h3>Cooking</h3>
+            <p>Good ol'fashioned pig roast!</p>
+          </div>
         </div>
-        <div class="col-sm-3">
-            <h3> Cats</h3>
-            <img src="Cats.jpg" class="rounded" alt="Cats" width="304" height="236">
-            <p> Cats that I like to pet.</p>
+        <div class="carousel-item">
+          <img src="Cats.jpg" alt="Cats" class="mx-auto d-block" height="500">
+          <div class="carousel-caption">
+            <h3>Cats</h3>
+            <p>Two fo my Three cats!</p>
+          </div>
         </div>
+      </div>
+    
+      <!-- Left and right controls/icons -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
- </div>
+
+    <div class="container-fluid mt-3 text-center">
+        <h3> Hobbies Overview </h3>
+        <ul class="list-group">
+            <li class="list-group-item">Travelling</li>
+            <li class="list-group-item">Cooking</li>
+            <li class="list-group-item">Cats</li>
+          </ul>
+    </div>
 </html>
