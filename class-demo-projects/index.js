@@ -31,3 +31,11 @@ function ex3() {
     output1.innerText = 'ex3 es5 intro to js';
     return
 }
+
+function display_datetime1(){
+    const eledate = document.getElementById('lbldate');
+    const d1 = new Date();
+    let month = (d1.getMonth() + 1); //math order of operation (), *, +
+    eledate.innerText = month + "/"+ d1.getDate() + "/" + d1.getFullYear(); 
+
+}
