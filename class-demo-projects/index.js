@@ -34,8 +34,11 @@ function ex3() {
 
 function display_datetime1(){
     const eledate = document.getElementById('lbldate');
+    const eletime = document.getElementById('lbltime');
     const d1 = new Date();
+    const t1 = new Date(); //using the date to get the time for the date
     let month = (d1.getMonth() + 1); //math order of operation (), *, +
     eledate.innerText = month + "/"+ d1.getDate() + "/" + d1.getFullYear(); 
-
+    eletime.innerText = t1.toLocaleTimeString();
+    
 }
