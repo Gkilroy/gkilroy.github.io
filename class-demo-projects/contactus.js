@@ -1,4 +1,4 @@
-function vlaidate_form1()
+function validate_form1()
 {
 
     //es1..4 -- updatable variable
@@ -43,7 +43,7 @@ function vlaidate_form1()
 }
 
 
-function vlaidate_form2()
+function validate_form2()
 {
 
     //es1..4 -- updatable variable
@@ -87,7 +87,7 @@ function vlaidate_form2()
 }
 
 
-function vlaidate_form3()
+function validate_form3()
 {
 
     //es1..4 -- updatable variable
@@ -103,7 +103,7 @@ function vlaidate_form3()
     const elecomment = document.getElementById("txtcomment");
 
     //const ele_nme_error = document.getElementById("errorMessage");
-    const ele_nme_error = document.querySelector(".errorMessage");
+    const ele_name_error = document.querySelector(".errorMessage");
     //const ele_nme_error = document.querySelector("#errorMessage");
 
     let _msg = "";
@@ -123,7 +123,7 @@ function vlaidate_form3()
     else if (eleemail.value == "")
     {
         _msg = "* please enter a valid email";
-        ele_nme_error.innerText = "<b>" +  _msg  + "</b>";
+        ele_name_error.innerText = "<b>" +  _msg  + "</b>";
 
         return false;
     }
@@ -133,4 +133,44 @@ function vlaidate_form3()
 
     //continue form submit
     return true;
+}
+function validate_form4()
+{
+    
+
+    var elename = document.getElementById("txtname");
+    let elephone = document.getElementById("txtphone");
+    const eleemail = document.getElementById("txtemail");
+    const elecomment = document.getElementById("txtcomment");
+
+    const ele_error_message = document.querySelector(".errorMessage");
+    
+    const ele_name_error = document.querySelector(".nameError");
+
+    let _msg = "";
+
+    //add or remove class -if 2 or more classes
+    ele_name_error.style.display = "none";
+
+    if (elename.value === "")
+    {
+
+        _msg = "* please enter a valid name";
+        ele_error_message.innerHTML = "<b>" + _msg  + "</b>";
+        // can also remove add or remove class
+        ele_name_error.style.display = "block";
+        return false;
+    }
+
+    else if (eleemail.value == "")
+    {
+        _msg = "* please enter a valid email";
+        ele_error_message.innerText = "<b>" +  _msg  + "</b>";
+
+        return false;
+    }
+   
+
+    return true;
+
 }

@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width-device-width, initial-scale1.0">
-        <title> Js Intro 1.2 - Contact Us</title>
+        <title> Js Intro 2.0 - Contact Us</title>
         <link rel="stylesheet" href="./contactus.css">
         <script src="./contactus.js"></script>
     </head>
@@ -14,7 +14,7 @@
             <a href="./contactus.html">Contact Us</a>
         </nav>
         <div class="container">
-        <h1> JS Intro V1.2 - Contact Us</h1>
+        <h1> JS Intro V2.0 - Contact Us</h1>
         <div class="form-errors">
             <div class="errorMessage" id="errorMessage"></div>
         </div>
@@ -22,12 +22,12 @@
         <form>
         <div class="form-field">
         <span>* Name: </span>
-        <input type="text" id="txtname" placeholder="* name is required">
-        <span class="nameError" id="nameError">* please ennter a valid name</span>
+        <input class="name-field-error" type="text" id="txtname" placeholder="* name is required" maxlength="20">
+        <span class="nameError" id="nameError">* please enter a valid name</span>
         </div>
         <div class="form-field">
             <span>Phone: </span>
-            <input type="text" id="txtphone" placeholder="Phone Number">
+            <input type="text" id="txtphone" placeholder="Phone Number" minlength="10" maxlength="15">
         </div>
         <div class="form-field">
             <span>* Email: </span>
@@ -35,11 +35,11 @@
         </div>
         <div class="form-field">
             <span>* Comment: </span>
- <textarea id="txtcomment" placeholder="* comment"></textarea>
+ <textarea id="txtcomment" placeholder="* comment" minlength="10" maxlength="100"></textarea>
         </div>
     </div>
     <div class="form-button">
-        <button onclick="return validate_form2()">Submit</button>
+        <button onclick="return validate_form4()">Submit</button>
     </div>
 </form>
  </div>
