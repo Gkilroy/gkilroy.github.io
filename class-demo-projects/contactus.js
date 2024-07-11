@@ -149,7 +149,6 @@ function validate_form4()
 
     let _msg = "";
 
-    //add or remove class -if 2 or more classes
     ele_name_error.style.display = "none";
 
     if (elename.value === "")
@@ -157,7 +156,7 @@ function validate_form4()
 
         _msg = "* please enter a valid name";
         ele_error_message.innerHTML = "<b>" + _msg  + "</b>";
-        // can also remove add or remove class
+    
         ele_name_error.style.display = "block";
         return false;
     }
@@ -170,6 +169,69 @@ function validate_form4()
         return false;
     }
    
+
+    return true;
+
+}
+function validate_form5()
+{
+    
+
+    var elename = document.getElementById("txtname");
+    let elephone = document.getElementById("txtphone");
+    const eleemail = document.getElementById("txtemail");
+    const elecomment = document.getElementById("txtcomment");
+
+    const ele_error_message = document.querySelector(".errorMessage");
+    
+    const ele_name_error = document.querySelector(".nameError");
+
+    const ele_form_error_list = document.querySelector(".form-Field-Error-List");
+
+    let_form_error_array = [];
+
+    let _msg = "";
+
+    //add or remove class -if 2 or more classes
+    ele_name_error.style.display = "none";
+
+    if (elename.value === "")
+    {
+
+        _msg = "* please enter a valid name";
+        _form_error_array.push(_msg);
+
+        ele_error_message.innerHTML = "<b>" + _msg  + "</b>";
+        // can also remove add or remove class
+        ele_name_error.style.display = "block";
+        //return false;
+    }
+
+    if (eleemail.value == "")
+    {
+        _msg = "* please enter a valid email";
+        _form_error_array.push(_msg);
+        ele_error_message.innerText = "<b>" +  _msg  + "</b>";
+
+        //return false;
+    }
+   
+    if(_form_error_array.length>0){
+//loop through array and display array items
+//- html code string
+//- domelement code
+let text = "<ul>";
+
+for(let i=0; (i<_form_error_array.length);i++)
+    {
+_text += "<li>" + _form_error_array[i]+ "</li>";
+
+}
+_text += "</ul>";
+ele_form_error_list.innerHTML = _text;
+//stop submit button
+        return false;
+    }
 
     return true;
 
