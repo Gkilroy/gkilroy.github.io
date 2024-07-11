@@ -188,7 +188,7 @@ function validate_form5()
 
     const ele_form_error_list = document.querySelector(".form-Field-Error-List");
 
-    let_form_error_array = [];
+    let _form_error_array = [];
 
     let _msg = "";
 
