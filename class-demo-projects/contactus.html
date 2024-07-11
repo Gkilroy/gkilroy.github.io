@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>demo Js Intro - Contact Us 1.0.3</title>
   <link rel="stylesheet" href="./contactus.css">
-  <script src="./contactus.js"></script>
+  <script src="./contactus.js" defer></script>
 </head>
 <body>
   <nav>
@@ -40,7 +40,8 @@
             <textarea id="txtcomment" placeholder="* comment" minlength="10" maxlength="100"></textarea>
           </div>
           <div class="form-button">
-            <button onclick="return vlaidate_form5()">Submit</button>
+            <button type="submit" onclick="return vlaidate_form5()">Submit</button>
+            <button type="button" id="btnReset" class="btnReset">Reset</button>
           </div>
       </form>
   </div>

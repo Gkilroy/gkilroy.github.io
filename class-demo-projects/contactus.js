@@ -1,3 +1,11 @@
+document.getElementById("btnReset").addEventListener("click", function(event)
+{
+        event.preventDefault();
+
+        console.log("** reset button cliek");
+
+});
+
 function vlaidate_form1()
 {
 
@@ -253,9 +261,11 @@ function vlaidate_form5()
         {
             let ele_li = document.createElement("li");
 
+            //let ele_text = document.createTextNode(_form_error_array[i]);
             let ele_p = document.createElement("p");
             ele_p.innerText = _form_error_array[i];
 
+            //ele_li.appendChild(ele_text);
             ele_li.appendChild(ele_p);
             ele_ul.appendChild(ele_li);
         }
