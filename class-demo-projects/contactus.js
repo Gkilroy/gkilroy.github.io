@@ -225,10 +225,26 @@ let text = "<ul>";
 for(let i=0; (i<_form_error_array.length);i++)
     {
 _text += "<li>" + _form_error_array[i]+ "</li>";
-
 }
+
 _text += "</ul>";
-ele_form_error_list.innerHTML = _text;
+
+//ele_form_error_list.innerHTML = _text;
+
+let ele_ul = document.createElement("ul");
+
+for(let i=0; (i<_form_error_array.length);i++)
+    {
+        let ele_li = document.createElement("li");
+        let ele_p = document.createElement("p");
+        ele_p.innerText = _form_error_array[i];
+
+        ele_li.appendChild(ele_p);
+        ele_ul.appendChild(ele_li);
+
+}    
+//ele_form_error_list.innerHTML = ele.ul.innerHTML;
+ele_form_error_list.appendChild(ele_ul);
 //stop submit button
         return false;
     }
