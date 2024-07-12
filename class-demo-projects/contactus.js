@@ -2,7 +2,7 @@ document.getElementById("btnReset").addEventListener("click", function(event)
 {
         event.preventDefault();
 
-        console.log("** reset button cliek");
+        console.log("** reset button click");
 
 });
 
