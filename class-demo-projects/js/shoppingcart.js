@@ -25,15 +25,17 @@ function clearButton(e)
 
 }
 
-document.getElementById("btnclose-addnnew").addEventListener("click", function(e)
+document.getElementById("btnclose-addnew").addEventListener("click", function(e)
 {
         e.preventDefault();
         const output1 = document.getElementById("output1");
 
-        let = _msg = "btnclose-addnew";
-
+        _msg = "btnclose-addnew"
         console.log(_msg)
         output1.innerText = _msg;
+
+        additemform.style.display = "none";
+
 
 });
 
@@ -42,31 +44,33 @@ document.getElementById("btnaddnew").addEventListener("click", function(e)
         e.preventDefault();
         const output1 = document.getElementById("output1");
 
-        let = _msg = "btnaddnew";
-
+        _msg = "btnaddnew"
         console.log(_msg)
         output1.innerText = _msg;
 
 });
+
 document.getElementById("btnclear-addnew").addEventListener("click", function(e)
 {
         e.preventDefault();
         const output1 = document.getElementById("output1");
 
-        let = _msg = "btnclear-addnew";
-
+        _msg = "btnclear-addnew"
         console.log(_msg)
         output1.innerText = _msg;
 
 });
+
 document.getElementById("btnaddnewitem").addEventListener("click", function(e)
 {
         e.preventDefault();
         const output1 = document.getElementById("output1");
+        const additemform = document.querySelector(".addnewitem");
 
-        let = _msg = "btnaddnewitem";
-
+        _msg = "btnaddnewitem"
         console.log(_msg)
         output1.innerText = _msg;
+
+        additemform.style.display = "block";
 
 });
