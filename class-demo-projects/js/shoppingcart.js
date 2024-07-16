@@ -36,43 +36,48 @@ document.getElementById("btnaddnew").addEventListener("click", function(e)
 {
     e.preventDefault();
     const output1 = document.getElementById("output1");
-
     const addnewmessage = document.getElementById("addnewitem-message");
-    const addname = document.getElementById("txtname-new");
-    const addprice = document.getElementById("txtprice-new");
+    const txtaddname = document.getElementById("txtname-new");
+    const txtaddprice = document.getElementById("txtprice-new");
 
-    let shoppingcart = [];
+    let _shoppingcart = [];
 
-    if (txtaddname.value === "")
+
+    if(txtaddname.value === "")
     {
-        const _msg = "*please enter a name";
+        const _msg = "* please enter a name";
         addnewmessage.innerText = _msg;
-        e.stopImmediatePropagation();
-
+        return false;
     }
     else if(txtaddprice.value === "")
     {
-        const _msg = "*please enter a price";
+        const _msg = "* please enter a price";
         addnewmessage.innerText = _msg;
-        e.stopImmediatePropagation();
+        return false;
     }
- 
+
+    //convert string to number - parseFloat()
     const _price = parseFloat(txtaddprice.value);
 
-    var_cartitem = {name:textaddname, price:_price};
+    var _cartitem = {name:txtaddname.value, price:_price};
 
+    
     _shoppingcart.push(_cartitem);
 
+    let _total = 0.0;
+    
     for(let i=0;i<_shoppingcart.length;i++)
     {
-        output1.innerHTML = output1.innerHTML + _shoppingcart[i] + "<br/>"
+   
+        output1.innerHTML = output1.innerHTML + JSON.stringify(_shoppingcart[i]) + "<br/>";
         _total = _total + _price;
     }
+
+    //update total field
 
     _msg = "btnaddnew"
     console.log(_msg)
     //output1.innerText = _msg;
-
 });
 
 document.getElementById("btnclear-addnew").addEventListener("click", function(e)
