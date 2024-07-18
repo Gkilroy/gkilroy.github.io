@@ -155,7 +155,45 @@ document.getElementById("btnfetchex1").addEventListener("click",function(e) {
         
         e.preventDefault();
 
-        output1.innerText = _function_name;
+        //
+        //-- default fecth implement proimse - callback use then() method when the data is available 
+        //-- then() allows code to continue without blocking
+        //-- ui is no-blocking 
+        //-- can use asyn/await insted of then()
+        //
+
+        const _url = "./data/demo1.json";
+        //const _url = "./data/demo2.json";
+        //const _url = "https://jsonplaceholder.org/posts/1";
+
+        fetch(_url)
+        .then(response => response.json())
+        .then(data => {
+    
+           output1.innerText = JSON.stringify(data);
+
+            //
+            //convert data to json object - JSON.parse(data)
+            //
+            //for, forEach, map, find, filter, other
+            //
+        });
+
+        /*
+            fetch('https://jsonplaceholder.org/users')
+            .then(response => {
+                if (!response.ok) {
+                throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(users => {
+                console.log(users);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        */
 
     } catch (error) {
         output1.innerText = `${_function_name}::error ${error}`
@@ -164,8 +202,7 @@ document.getElementById("btnfetchex1").addEventListener("click",function(e) {
 });
 
 
-
-document.getElementById("btnfetchex2").addEventListener("click",function(e) {
+document.getElementById("btnfetchex2").addEventListener("click",async function(e) {
 
     const output1 = document.getElementById("output1");
     const _function_name = "btnfetchex2";
@@ -177,7 +214,22 @@ document.getElementById("btnfetchex2").addEventListener("click",function(e) {
         
         e.preventDefault();
 
-        output1.innerText = _function_name;
+        //const _url = "./data/demo1.json";
+        const _url = "./data/demo2.json";
+        //const _url = "https://jsonplaceholder.org/posts/1";
+
+        //wait for data to be returned 
+        const response = await fetch(_url);
+        const data = await response.json();
+        
+        output1.innerText = JSON.stringify(data);
+
+        //
+        //convert data to json object - JSON.parse(data)
+        //
+        //for, forEach, map, find, filter, other
+        //
+        
 
     } catch (error) {
         output1.innerText = `${_function_name}::error ${error}`
