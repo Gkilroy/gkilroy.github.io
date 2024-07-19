@@ -162,9 +162,10 @@ document.getElementById("btnfetchex1").addEventListener("click",function(e) {
         //-- can use asyn/await insted of then()
         //
 
-        const _url = "./data/demo1.json";
+        //const _url = "./data/demo1.json";
         //const _url = "./data/demo2.json";
         //const _url = "https://jsonplaceholder.org/posts/1";
+        const _url = "./data/giphy1.json";
 
         //https://developers.giphy.com/docs/api/
         //https://developers.giphy.com/explorer/
@@ -180,7 +181,13 @@ document.getElementById("btnfetchex1").addEventListener("click",function(e) {
         .then(response => response.json())
         .then(data => {
     
-           output1.innerText = JSON.stringify(data);
+           //output1.innerText = JSON.stringify(data);
+
+           const _row = data.data[0];
+           const _image_url = _row.images.original.url;
+
+           //output1.innerText = JSON.stringify(_row);
+           output1.innerText = _image_url;
 
             //
             //convert data to json object - JSON.parse(data)
@@ -225,14 +232,32 @@ document.getElementById("btnfetchex2").addEventListener("click",async function(e
         e.preventDefault();
 
         //const _url = "./data/demo1.json";
-        const _url = "./data/demo2.json";
+        //const _url = "./data/demo2.json";
+        //const _url = "./data/demo2.json";        
         //const _url = "https://jsonplaceholder.org/posts/1";
+        const _url = "./data/giphy1.json";      
+
+        //https://developers.giphy.com/docs/api/
+        //https://developers.giphy.com/explorer/
+
+        const _gifyapiurl = 'https://api.giphy.com/v1/gifs/search?';
+        const _apiKey = '&api_key=gify-api-key';
+        const _query = '&q=cars'
+        //const _url = `${_gifyapiurl}${_apiKey}${_query}`;
+
+        //giphy.data[i].images.original.url
 
         //wait for data to be returned 
         const response = await fetch(_url);
         const data = await response.json();
         
-        output1.innerText = JSON.stringify(data);
+        //output1.innerText = JSON.stringify(data);
+        
+        const _row = data.data[0];
+        const _image_url = _row.images.original.url;
+
+        //output1.innerText = JSON.stringify(_row);
+        output1.innerText = _image_url;
 
         //
         //convert data to json object - JSON.parse(data)
