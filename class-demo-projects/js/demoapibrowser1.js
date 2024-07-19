@@ -166,6 +166,16 @@ document.getElementById("btnfetchex1").addEventListener("click",function(e) {
         //const _url = "./data/demo2.json";
         //const _url = "https://jsonplaceholder.org/posts/1";
 
+        //https://developers.giphy.com/docs/api/
+        //https://developers.giphy.com/explorer/
+
+        const _gifyapiurl = 'https://api.giphy.com/v1/gifs/search?';
+        const _apiKey = '&api_key=gify-api-key';
+        const _query = '&q=cars'
+        //const _url = `${_gifyapiurl}${_apiKey}${_query}`;
+
+        //giphy.data[i].images.original.url
+
         fetch(_url)
         .then(response => response.json())
         .then(data => {
