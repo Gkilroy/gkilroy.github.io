@@ -1,0 +1,38 @@
+body {
+    
+  
+  }
+  
+  .appheader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .container 
+  {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+  }
+  
+  .divcontent div {
+    border: 1px solid navy;
+    margin: 10px;
+    height: 100px;
+    width: 200px;
+  }
+  
+  .imagediv {
+    width: 25%;
+    display: inline-block;
+    background-color: rgb(170, 247, 215);
+  }
+  
+  @media screen and (max-width: 500px) {
+  
+    .imagediv {
+        width: 70%;
+    }
+  }
+  
