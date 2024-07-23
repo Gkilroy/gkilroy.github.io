@@ -28,13 +28,13 @@ document.getElementById("btnsearch").addEventListener("click",async function(e) 
             searchmessage.innerText = `* searching for: ${txtsearch.value}`;
         }
     
-        const _url1 = "./data/giphy2.json";
+        const _url1 = "https://api.giphy.com/v1/gifs/translate";
        
 
 
-        const _giphy_api_key = "giphy-key";
+        const _giphy_api_key = "qXNwOLg52yZT8guE1l47A0HLgKeinyFf";
 
-        const _gifyapiurl = 'https://api.giphy.com/v1/gifs/qXNwOLg52yZT8guE1l47A0HLgKeinyFf';
+        const _gifyapiurl = 'https://api.giphy.com/v1/gifs/translate';
         const _apiKey = `&api_key=${_giphy_api_key}`;
         const _query = `&q=${txtsearch.value}`;
 
