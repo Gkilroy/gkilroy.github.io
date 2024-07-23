@@ -28,11 +28,13 @@ document.getElementById("btnsearch").addEventListener("click",async function(e) 
             searchmessage.innerText = `* searching for: ${txtsearch.value}`;
         }
     
-        const _url1 = "./data/giphy1.json";
+        const _url1 = "./data/giphy2.json";
+       
+
 
         const _giphy_api_key = "giphy-key";
 
-        const _gifyapiurl = 'https://api.giphy.com/v1/gifs/search?';
+        const _gifyapiurl = 'https://api.giphy.com/v1/gifs/qXNwOLg52yZT8guE1l47A0HLgKeinyFf';
         const _apiKey = `&api_key=${_giphy_api_key}`;
         const _query = `&q=${txtsearch.value}`;
 
@@ -49,7 +51,7 @@ document.getElementById("btnsearch").addEventListener("click",async function(e) 
 
            data.data.forEach((item,index) => {
 
-                if(index <= 4)
+                if(index <= 11)
                     _img_list += `<div class='imagediv'><img src="${item.images.original.url}" width="200" height="100"></div>`;
 
             });
