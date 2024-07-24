@@ -28,19 +28,17 @@ document.getElementById("btnsearch").addEventListener("click",async function(e) 
             searchmessage.innerText = `* searching for: ${txtsearch.value}`;
         }
     
-        const _url1 = "https://api.giphy.com/v1/gifs/translate";
-       
+        const _url1 = "./data/giphy2.json";
 
+        const _giphy_api_key = "qJ10GuL4XBbXaYINhEacTSqoyLdtLQeG";
 
-        const _giphy_api_key = "qXNwOLg52yZT8guE1l47A0HLgKeinyFf";
-
-        const _gifyapiurl = 'https://api.giphy.com/v1/gifs/translate';
+        const _gifyapiurl = `https://api.giphy.com/v1/gifs/search?q=${txtsearch.value}&api_key=${_giphy_api_key}&limit=5`;
         const _apiKey = `&api_key=${_giphy_api_key}`;
         const _query = `&q=${txtsearch.value}`;
 
-        const _url = `${_gifyapiurl}${_apiKey}${_query}`;
+        const _url= `${_gifyapiurl}${_apiKey}${_query}`;
         
-        fetch(_url1)
+        fetch(`https://api.giphy.com/v1/gifs/search?q=${txtsearch.value}&api_key=${_giphy_api_key}&limit=5`)
         .then(response => response.json())
         .then(data => {
     
@@ -51,7 +49,7 @@ document.getElementById("btnsearch").addEventListener("click",async function(e) 
 
            data.data.forEach((item,index) => {
 
-                if(index <= 11)
+                if(index <= 4)
                     _img_list += `<div class='imagediv'><img src="${item.images.original.url}" width="200" height="100"></div>`;
 
             });
