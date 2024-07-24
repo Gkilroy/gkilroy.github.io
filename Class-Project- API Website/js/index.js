@@ -44,12 +44,11 @@ document.getElementById("btnsearch").addEventListener("click",async function(e) 
     
            divcontent.innerHTML = "";
 
-           //-- refactor: html string or dom createelement, appendchile...
            let _img_list = "";
 
            data.data.forEach((item,index) => {
 
-                if(index <= 4)
+                if(index <= 5)
                     _img_list += `<div class='imagediv'><img src="${item.images.original.url}" width="200" height="100"></div>`;
 
             });
