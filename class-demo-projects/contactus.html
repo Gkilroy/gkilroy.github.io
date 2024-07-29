@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo Js Intro - Contact Us 1.0.7</title>
+  <link rel="stylesheet" href="./css/contactus.css">
+  <script src="./js/applib1.js"></script>
+  <script src="./js/contactus.js" defer></script>
+</head>
+<body>
+  <nav>
+    <a href="./index.html">Home</a>
+    <a href="./contactus.html">Contact Us</a>
+    <a href="./shoppingcart.html">Shopping Cart</a>
+    <a href="./demoapibrowser1.html">Demo Api browser 1</a>
+  </nav>
+  <div class="container">
+    <h1>Demo JS Intro - Contact Us 1.0.7</h1>
+    <div class="form-errors">
+      <div class="form-Field-Error-List" id="form-Field-Error-List"></div>
+      <div class="errorMessage" id="errorMessage"></div>
+    </div>
+    <div class="form-style">
+      <form>
+          <div class="form-field">
+              <span>* Name: </span>
+              <input class="name-field-error" type="text" id="txtname" placeholder="* name is required" 
+               maxlength="20">
+              <span class="nameError" id="nameError">* please enter a valid name</span>
+          </div>
+          <div class="form-field">
+              <span>Phone: </span>
+              <input type="text" id="txtphone" placeholder="phone" minlength="10" maxlength="15">
+          </div>
+          <div class="form-field">
+            <span>* Email: </span>
+            <input type="text" id="txtemail" placeholder="* email is required" maxlength="100">
+          </div>    
+          <div class="form-field">
+            <span>* Comment: </span>
+            <textarea id="txtcomment" placeholder="* comment" minlength="10" maxlength="100"></textarea>
+          </div>    
+          <div class="form-button">
+            <button type="submit" onclick="return vlaidate_form6()">Submit</button>
+            <button type="button" id="btnReset" class="btnReset">Reset</button>
+          </div>
+      </form>
+  </div>
+</body>
+</html>
