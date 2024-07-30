@@ -1,0 +1,10 @@
+[
+    {"id":1,"name":"sam kagle","email":"samkagle@aol.com", "phone":"123-457-67989"},
+    {"id":2,"name":"jan kagle","email":"jankagle@yahoo.com"},
+    {"id":3,"name":"pam hall","email":"pamhall@gmail.com", "phone":"010-205-4783"},
+    {"id":4,"name":"ken hall","email":"annhall@msn.com", "phone":"374-323-2347"},
+    {"id":5,"name":"ann smith","email":"annsmith@yahoo.com"},
+    {"id":6,"name":"john smith","email":"johnsmith@gmail.com"},
+    {"id":7,"name":"bob johnson","email":"bonjohnson@msn.com", "phone":"464-371-8734"},
+    {"id":8,"name":"emily johnson","email":"emilyjohnson@gmail.com"}
+]

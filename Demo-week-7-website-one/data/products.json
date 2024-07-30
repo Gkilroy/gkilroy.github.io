@@ -1,0 +1,16 @@
+[
+{"id":1,"name":"tv1","price":112.32},
+{"id":2,"name":"tv2","price":312.42},
+{"id":3,"name":"sneaker1","price":89.36},
+{"id":4,"name":"sneaker2","price":238.23},
+{"id":5,"name":"book1","price":73.2},
+{"id":6,"name":"book2","price":52.36},
+{"id":7,"name":"laptop1","price":324},
+{"id":8,"name":"laptop2","price":522.57},
+{"id":9,"name":"tablet1","price":67.37},
+{"id":10,"name":"tablet2","price":78.32},
+{"id":11,"name":"watch1","price":234.38},
+{"id":12,"name":"watch2","price":83.28},
+{"id":13,"name":"bike1","price":321.80},
+{"id":14,"name":"bike2","price":116.73}
+]
