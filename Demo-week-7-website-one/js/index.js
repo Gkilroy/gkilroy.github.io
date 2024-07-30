@@ -25,7 +25,7 @@
 //es5+ optional: asnc/await - promise - non blocking function
 //es5+ array function  = (e) => {}
 //es5+ async / await - promise 
-document.getElementById("btn-ds1").addEventListener("click", function(e){
+document.getElementById("btn-array-map-1").addEventListener("click", function(e){
 
     //function local scope 
 
@@ -33,7 +33,7 @@ document.getElementById("btn-ds1").addEventListener("click", function(e){
     //ie: selinium - 
 
     const _output1 = document.getElementById("output1");
-    const _function_name = "btn-ds1";
+    const _function_name = "btn-array-map-1";
 
     try {
         
@@ -111,10 +111,10 @@ document.getElementById("btn-ds1").addEventListener("click", function(e){
 });
 
 
-document.getElementById("btn-ds2").addEventListener("click", async (e) => {
+document.getElementById("btn-array-reduce-1").addEventListener("click", async (e) => {
 
     const _output1 = document.getElementById("output1");
-    const _function_name = "btn-ds2";
+    const _function_name = "btn-array-reduce-1";
 
     try {
         
@@ -155,10 +155,10 @@ document.getElementById("btn-ds2").addEventListener("click", async (e) => {
 
 });
 
-document.getElementById("btn-ds3").addEventListener("click", async (e) => {
+document.getElementById("btn-array-map-2").addEventListener("click", async (e) => {
 
     const _output1 = document.getElementById("output1");
-    const _function_name = "btn-ds3";
+    const _function_name = "btn-array-map-2";
 
     try {
         
@@ -193,10 +193,10 @@ document.getElementById("btn-ds3").addEventListener("click", async (e) => {
 });
 
 
-document.getElementById("btn-ds4").addEventListener("click", async (e) => {
+document.getElementById("btn-class-set-1").addEventListener("click", async (e) => {
 
     const _output1 = document.getElementById("output1");
-    const _function_name = "btn-ds4";
+    const _function_name = "btn-class-set-1";
 
     try {
         
@@ -226,6 +226,8 @@ document.getElementById("btn-ds4").addEventListener("click", async (e) => {
         //class Set 
         //loop through set and convert to javascript list 
 
+        _output1.innerText = "";
+        
         //_set2.forEach
         //es6+ 
         for(let item of _set2)
@@ -242,10 +244,10 @@ document.getElementById("btn-ds4").addEventListener("click", async (e) => {
 });
 
 
-document.getElementById("btn-ds5").addEventListener("click", async (e) => {
+document.getElementById("btn-class-map-1").addEventListener("click", async (e) => {
 
     const _output1 = document.getElementById("output1");
-    const _function_name = "btn-ds5";
+    const _function_name = "btn-class-map-1";
 
     try {
         
@@ -260,9 +262,36 @@ document.getElementById("btn-ds5").addEventListener("click", async (e) => {
         //----------------------------------------------------------------------------------
         //es6+ map class example
         //----------------------------------------------------------------------------------
-        //--- additional functanility ie: sort, other 
+        //--- additional functanility ie: set, sort, other 
 
-        _output1.innerText = _function_name;
+        //-- new Map(), Set() = create a new instance/copy of object/map in memory 
+        //-- new Map(), Set() different copies of map/object in memory with samep/different data
+        //-- new Date() -- has own set of methods 
+
+        const _map1 = new Map(
+            [
+             ["key1",5],
+             ["key2",10],
+             ["key3",15],
+            ]);
+
+        _map1.set("key4",25) //add new key and value 
+        _map1.set("key3",12) //update value using key 
+
+        //retrieve items 
+        const _key2_value = _map1.get("key2");
+
+        _output1.innerText = "";
+
+        //_map1.forEach
+        //es6+ 
+        //for(let item of _map1.keys())
+        for(let item of _map1.values())
+        {
+            _output1.innerText += `${item}|`;
+        }
+        
+        _output1.innerText += ` - _key2_value: ${_key2_value}|`;
 
     } catch (error) {
         
