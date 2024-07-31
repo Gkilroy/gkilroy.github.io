@@ -1,4 +1,4 @@
-//-- es15+
+//-- es5+
 
 //-- code reuse----
 
@@ -11,8 +11,10 @@
 // error handling 
 // other 
 
-//es5+ syntax 
+export function calc_add(x, y){
+    return (x+y)
+}
 
-export function log(massage){
-    console.log(massage)
+export function calc_multiply(x, y){
+    return (x*y)
 }
