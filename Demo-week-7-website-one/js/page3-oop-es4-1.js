@@ -74,12 +74,15 @@ function oop_obj_es4_ex2()
     //copy of same object reference in memory
     //if modify person1 object person object will be updated
     //person1 references the same object in memory 
-    let person1 = person;
+    let person1 = person; //shallow copy 
+    //let person1 = Object.assign({},person); //shallow copy 
+
     person1.age = 41;
 
     //-- create a new instance;
     //create a new intstance or 1 copy in memory 
     //const person2 = Object.create(person); 
+    //let person2 = JSON.parse(JSON.strinify(person)); //deep copy - new object 
 
     //3. access, update instance data 
     //refrencing person object/instance in memory and accessing person object data 
