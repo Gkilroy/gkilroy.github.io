@@ -57,4 +57,4 @@ document.getElementById("btn-oop-es5-class-ex1").addEventListener("click", (e)=>
         
         _output1.innerText = `${_function_name}::error - ${error}`;
     }
-});
+});                                      
