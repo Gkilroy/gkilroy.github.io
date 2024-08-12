@@ -78,7 +78,7 @@ const ContactUs2 = (props) => {
 
         try {
 
-            _msg = `name: ${txtemail}`;
+            _msg = `email: ${txtemail}`;
 
             setMsg((prevval)=>_msg);
             console.log(_msg)
@@ -106,7 +106,7 @@ const ContactUs2 = (props) => {
 
     return(
         <>
-            <h4>ContactUs Page - 2.0.1</h4>
+            <h4>ContactUs Page - 2.0.2</h4>
             <p>* controlled form validation example - save form data in usestate</p>
             <span>{msg}</span><span></span>
             <div> 
