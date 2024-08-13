@@ -9,6 +9,7 @@ import Header from './components/Header';
 import About from './components/pages/About';
 import ContactUs1 from './components/pages/ContactUs1';
 import ContactUs2 from './components/pages/ContactUs2';
+import ContactUs3 from './components/pages/ContactUs3';
 import DisplayList1 from './components/pages/DisplayList1';
 
 //-- outside (App.js) appliction global/context - state/date 
@@ -177,6 +178,7 @@ function App() {
           <Route path="/about" element={<About/>}/>
           <Route path="/contactus1" element={<ContactUs1/>}/>
           <Route path="/contactus2" element={<ContactUs2/>}/>
+          <Route path="/contactus3" element={<ContactUs3/>}/>
           <Route path="/displaylist1" element={<DisplayList1/>}/>
           <Route path="*" element={
               <>
