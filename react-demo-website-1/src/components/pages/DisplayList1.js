@@ -5,7 +5,7 @@
 //-- array
 //-- fetch json data
 //-- fetch api - jsonplaceholder api 
-//
+//-- Container components - does not display data, Presentation Components - displays data 
 
 const DisplayList1 = (props) => {
     return(

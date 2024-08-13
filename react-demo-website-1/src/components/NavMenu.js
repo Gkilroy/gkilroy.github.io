@@ -18,6 +18,11 @@ return (
              <Link to="/contactus3">Contact Us 3</Link>
              {" "}
              <Link to="/displaylist1">Display List 1</Link>
+             {" "}
+             <Link to="/login">Login</Link>
+             {" "}
+             <Link to="/register">Register</Link>
+             {" "}
         </nav>    
     </>
 )}
