@@ -61,6 +61,10 @@ const Register = (props) => {
                         <input type="text" placeholder="*confirm password required" maxlength="50"                                                  
                          />
                     </div>
+                    <div>
+                        <p> </p>
+                        <input type="checkbox" />{" "} Terms and conditions
+                    </div>
                     <p></p>
                     <div>
                         <button type="submit">Submit</button>

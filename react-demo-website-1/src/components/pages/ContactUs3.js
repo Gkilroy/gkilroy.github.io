@@ -222,7 +222,10 @@ const ContactUs3 = (props) => {
                          {formfielderrors.txtemail && <label>{formfielderrors.txtemail}</label>}
                          {/* if (formfielderrors.txtemail) != null then display formfielderrors.txtemail -- no else statement*/}
                     </div>
-                    <p></p>
+                    <div>
+                        <textarea name="txtcomment" rows={5} cols={30} placeholder="* comments is required"/>
+                    </div>
+                    <p></p> 
                     <div>
                         <button type="submit">Submit</button>
                     </div>
