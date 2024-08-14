@@ -44,25 +44,59 @@ const ContactUs3 = (props) => {
             setMsg((prevval)=>_msg);
             console.log(_msg)
 
+            //----
+            //-- React state update error ---- 
+            //-- object/array rest operator ... to copy previous state/data 
+            //...array example: {...array1,
+            //... in arrow funtion exmple: (prevval) => ({...prevval,
             //
-            setFormFieldErrors((preval)=>({...formfielderrors,txtname1:""}));
-            setFormFieldErrors((preval)=>({...formfielderrors,txtemail:""}));
+            //-- ## app error/issue 
+            // using array ..rest to copy/rest state/date 
+            // instead of array functions (prevval) as ...rest copy/data
+            //
+            //setFormFieldErrors((preval)=>({...formfielderrors,txtname1:""}));
+            //
+            // ## update code without error/issue 
+            //
+            //setFormFieldErrors((preval)=>({...prevval,txtname1:""}));
+            //
 
-            if(formfields.txtname1 === null || formfields.txtname1 === undefined || formfields.txtname1 === "" 
-                || formfields.txtname1.toString().trim().length === 0
+            //-- error/issue 
+            //
+            //setFormFieldErrors((preval)=>({...formfielderrors,txtname1:""}));
+            //setFormFieldErrors((preval)=>({...formfielderrors,txtemail:""}));
+
+            
+            //
+            //--- validate input ----- 
+            //-- update code / no error/issue 
+            //
+
+            setFormFieldErrors((preval)=>({...preval,txtname:""}));
+            setFormFieldErrors((preval)=>({...preval,txtemail:""}));
+
+            if(formfields.txtname === null || formfields.txtname === undefined || formfields.txtname === "" 
+                || formfields.txtname.trim().length === 0
             )
             {
-                const _msgerr = "* please enter a valid name1";
+                const _msgerr = "* please enter a valid name";
                 //example: {txtname:'* invalid name',txtemail:'* invalid email'}
-                setFormFieldErrors((preval)=>({...formfielderrors,txtname1:_msgerr}))
+                
+                //-- error/issue 
+                //setFormFieldErrors((preval)=>({...formfielderrors,txtname:_msgerr}))
+                //update no error/issue 
+                setFormFieldErrors((preval)=>({...preval,txtname:_msgerr}))
             }
             
             if(formfields.txtemail === null || formfields.txtemail === undefined || formfields.txtemail === "" 
-            || formfields.txtemail.toString().trim().length === 0)
+            || formfields.txtemail.trim().length === 0)
             {
                 const _msgerr = "* please enter a valid email";
                 //example: {txtname:'* invalid name',txtemail:'* invalid email'}
-                setFormFieldErrors((preval)=>({...formfielderrors,txtemail:_msgerr}))
+                //-- error/issue
+                //setFormFieldErrors((prevval)=>({...formfielderrors,txtemail:_msgerr}))
+                //-- updated code/no error/issue 
+                setFormFieldErrors((prevval)=>({...prevval,txtemail:_msgerr}))
             }
 
         } catch (error) {
@@ -90,7 +124,6 @@ const ContactUs3 = (props) => {
             //-- (...object spread operator, update key/value)
             //
             //example: {txtname:'name1',txtemail:'email1@email.com'}
-            //setFormFields(prevval=>({...prevval,[_name]:_value}));
             setFormFields((prevval)=>({...prevval,[_name]:_value}));
             //... object/array spread operator = add all existing object/array values ie: copy all object/array values 
             //({...prevval})
@@ -114,6 +147,37 @@ const ContactUs3 = (props) => {
             //
             //setFormFieldErrors({});  //no reccommended 
 
+            //
+            //--- validate input ----- 
+            //-- update code / no error/issue 
+            //
+            
+            setFormFieldErrors((preval)=>({...preval,txtname:""}));
+            setFormFieldErrors((preval)=>({...preval,txtemail:""}));
+
+            if(formfields.txtname === null || formfields.txtname === undefined || formfields.txtname === "" 
+                || formfields.txtname.trim().length === 0
+            )
+            {
+                const _msgerr = "* please enter a valid name";
+                //example: {txtname:'* invalid name',txtemail:'* invalid email'}
+                
+                //-- error/issue 
+                //setFormFieldErrors((preval)=>({...formfielderrors,txtname:_msgerr}))
+                //update no error/issue 
+                setFormFieldErrors((preval)=>({...preval,txtname:_msgerr}))
+            }
+            
+            if(formfields.txtemail === null || formfields.txtemail === undefined || formfields.txtemail === "" 
+            || formfields.txtemail.trim().length === 0)
+            {
+                const _msgerr = "* please enter a valid email";
+                //example: {txtname:'* invalid name',txtemail:'* invalid email'}
+                //-- error/issue
+                //setFormFieldErrors((prevval)=>({...formfielderrors,txtemail:_msgerr}))
+                //-- updated code/no error/issue 
+                setFormFieldErrors((prevval)=>({...prevval,txtemail:_msgerr}))
+            }
 
 
         } catch (error) {
@@ -128,7 +192,7 @@ const ContactUs3 = (props) => {
 
     return(
         <>
-            <h4>ContactUs Page - 3.0.3</h4>
+            <h4>ContactUs Page - 3.0.4</h4>
             <p>* controlled form validation example - save form data in usestate</p>
             <span>{msg}</span>            
             <p>{JSON.stringify(formfielderrors)}</p>    
@@ -137,18 +201,20 @@ const ContactUs3 = (props) => {
                     <div>
                         <label>* name: </label>
                         <input type="text" placeholder="*name required" maxlength="25"                                                  
-                          name="txtname1" onChange={(e)=>handleFormFieldChange(e)} 
+                          name="txtname" onChange={(e)=>handleFormFieldChange(e)} 
+                          value={formfields.txtname || ""}
                          />
                          {/* if (formfields.txtname != null) display formfields.txtname else "" */}
                          {/* (formfields.txtname != null) ? formfields.txtname : "" */}
                          {/* (formfields.txtname) ? formfields.txtname : "" */}
-                         {formfielderrors.txtname1 && <label>{formfielderrors.txtname1}</label>}
+                         {formfielderrors.txtname && <label>{formfielderrors.txtname}</label>}
                          {/* if (formfielderrors.txtname) != null then display formfielderrors.txtname -- no else statement*/}
                     </div>
                     <div>
                         <label>* email: </label>
                         <input type="text" placeholder="*email required" maxlength="50"                          
                           name="txtemail" onChange={(e)=>handleFormFieldChange(e)}
+                          value={formfields.txtemail || ""}
                          />
                          {/* if (formfields.txtemail != null) display formfields.txtemail else "" */}
                          {/* (formfields.txtemail != null) ? formfields.txtemail : "" */}
