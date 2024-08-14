@@ -78,13 +78,10 @@ const DisplayList1 = (props) => {
 
     return(
         <>
-            <h1>DisplayList Page 1.0.3</h1>         
+            <h4>DisplayList Page 1.0.3</h4>         
             <label>{msg}</label>   
-            <div className="output1">
-                {output && output}
-            </div>     
             <div>
-                <b>list array jsx output 1 - list key error </b>
+                <b>list array jsx output example with item key </b>
                 <div>
                     <input type="text" maxLength={20} placeholder="* add item"/>
                     {" "}
@@ -94,16 +91,21 @@ const DisplayList1 = (props) => {
                     <a href="#1">completed</a>{" | "}
                     <a href="#2">in-complete</a>
                 </div>
-                {list_array.map((item)=><p key={item.id}>{
+                <div>
+                  {list_array.map((item)=><p key={item.id}>{
                     <>
                         <input type="checkbox" checked={item.completed}/>
                         {" "}
-                        <span key={item.id}>{item.name}</span>
+                        <span key={item.id} style={{'text-decoration':(item.completed)?"line-through":""}}>{item.name}</span>
                         {" "}
                         <button>x</button>
                     </>
-                }</p>)}
+                    }</p>)}
+                </div>
             </div>
+            <div className="output1">
+                {output && output}
+            </div>                 
             <div className="action" style={{padding:"5px"}}> 
                 <button onClick={list_items_array}>list array example</button>                
                 <button>list jsondoc example</button>
