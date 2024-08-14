@@ -9,11 +9,10 @@ import { useEffect, useState } from "react";
 //-- fetch api - jsonplaceholder api 
 //-- Container components - does not display data, Presentation Components - displays data 
 
-
 //
 //-- Data state context in Global context - data is avaiable to all componets 
 //
-const _list_array = [
+const list_array = [
     {id:1,name:"item one", completed:false},
     {id:2,name:"item two", completed:false},
     {id:3,name:"item three", completed:true},
@@ -30,7 +29,7 @@ const DisplayList1 = (props) => {
     //
     //-- Data state context in DisplayList function - data is avaiable to all sub/child componets of DisplayList1
     //
-    const [list, setList] = useState(_list_array);
+    const [list, setList] = useState(list_array);
 
     useEffect(()=>{
 
@@ -52,9 +51,9 @@ const DisplayList1 = (props) => {
 
             setMsg(_function_name);
 
-            const _jsx_items = list.map((item)=>{                                
+            const _jsx_items = list.map((item)=><p>{                                
                 <span>{item.name}</span>                
-            });
+            }</p>);
 
             //
             //ie: DOM - Document.CreateElement, AppendChild
@@ -79,11 +78,32 @@ const DisplayList1 = (props) => {
 
     return(
         <>
-            <h1>DisplayList Page 1.0.1</h1>         
+            <h1>DisplayList Page 1.0.3</h1>         
             <label>{msg}</label>   
             <div className="output1">
-                {output && JSON.stringify(output)}
+                {output && output}
             </div>     
+            <div>
+                <b>list array jsx output 1 - list key error </b>
+                <div>
+                    <input type="text" maxLength={20} placeholder="* add item"/>
+                    {" "}
+                    <button>add</button>
+                    <p></p>
+                    <a href="#0">all</a>{" | "}
+                    <a href="#1">completed</a>{" | "}
+                    <a href="#2">in-complete</a>
+                </div>
+                {list_array.map((item)=><p key={item.id}>{
+                    <>
+                        <input type="checkbox" checked={item.completed}/>
+                        {" "}
+                        <span key={item.id}>{item.name}</span>
+                        {" "}
+                        <button>x</button>
+                    </>
+                }</p>)}
+            </div>
             <div className="action" style={{padding:"5px"}}> 
                 <button onClick={list_items_array}>list array example</button>                
                 <button>list jsondoc example</button>
