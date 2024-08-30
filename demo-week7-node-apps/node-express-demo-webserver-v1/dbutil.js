@@ -2,9 +2,14 @@
 
 //import sqlitedb
 const sqlite3 = require("sqlite3").verbose();
+
+//-- *nix
+//const db_name = "data//demofaqdb1.db";
+
+//-- windows:
 const db_name = "data\\demofaqdb1.db";
 
-const login = function(username, password)
+const login = function(username, password, logincb)
 {
     const _funnction_name = "login";
     let _msg = "";
@@ -43,12 +48,13 @@ const login = function(username, password)
                     _msg = `##  user: ${row.id} - ${row.username}`;
                     console.log(_msg);
                     _return = true;
-                    rlogin = _return;
+                    logincb(_return);
                 }
                 else
                 {
                     _msg = `** user not found `;
                     console.log(_msg);
+                    logincb(_return);
                 }                              
             }
         });
@@ -76,7 +82,7 @@ const login = function(username, password)
     return _return;
 }
 
-const insert_user  = function(username, password)
+const insert_user  = function(username, password, insertusercb)
 {
     const _funnction_name = "insert_user";
     let _msg = "";
@@ -109,6 +115,7 @@ const insert_user  = function(username, password)
                 //console.log(err);
 
                 _return = false;
+                insertusercb(_return);
             }
             else
             {
@@ -117,6 +124,7 @@ const insert_user  = function(username, password)
                 console.log(_msg);
                 
                 _return = true;
+                insertusercb(_return);
             }
         });
 

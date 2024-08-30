@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const _PORT = 8080;
 
 app.get("/", (req, res) => {
-  const _msg = "Node/Express webserver v2.0.2";
+  const _msg = "Node/Express webserver v2.0.3";
   res.send({ msg: _msg });
 });
 
@@ -73,7 +73,7 @@ app.get("/test3/:id", (req, res) => {
 });
 
 app.get("/login/:username/:password", (req, res) => {
-    
+
     const _username = req.params.username;
     const _password = req.params.password;
 
@@ -82,16 +82,19 @@ app.get("/login/:username/:password", (req, res) => {
 
     let _data = {};
 
-    _msg = "* login successful";
-    _data = { msg: _msg, login: true };
-  
-    if(!login(_username, _password))
-    {
-            _msg = "* invalid username/password";
-            _data = { msg: _msg, login: false };
-    }
+    login(_username, _password, (islogin)=>{
+            
+        _msg = "* login successful";
+        _data = { msg: _msg, login: true };
+    
+        if(!islogin)
+        {
+                _msg = "* invalid username/password";
+                _data = { msg: _msg, login: false };
+        }        
 
-    res.send(_data);
+        res.send(_data);
+    });    
 
 });
 
@@ -103,28 +106,26 @@ app.post("/register", (req, res) => {
 
   let _return = {};
 
-  _msg = "* registration successful";
-  _return = { msg: _msg, register: true };
+  const _username = _body.username;
+  const _password = _body.password;
 
-  _username = _body.username;
+  insert_user(_username,_password,(isnewuser)=>{
 
-  //-- lookup username in database
-  if (
-    _username === null ||
-    _username === undefined ||
-    _username.trim().toLowerCase() === "admin"
-  ) {
-    _msg = "* invalid registration, username already exists.";
-    _return = { msg: _msg, register: false };
-  } else {
-    console.log("save username/password to database");
-  }
-
-  res.send(_return);
+        _msg = "* registration successful";
+        _return = { msg: _msg, register: true };
+  
+        if (!isnewuser) {
+            _msg = "* invalid registration, username already exists.";
+            _return = { msg: _msg, register: false };
+        } 
+        
+       res.send(_return);
+  });
+  
 });
 
 app.listen(_PORT, () => {
-  const _msg = `Node/express webserver 2.0.1 ...running on port: ${_PORT}`;
+  const _msg = `Node/express webserver 2.0.3 ...running on port: ${_PORT}`;
 
   console.log(_msg);
 });
