@@ -39,10 +39,17 @@ app.get("/test2", (req, res) => {
 
 app.get("/testdb1", (req, res) => {
   
-    const _msg = `Node/Express testdb1 `;
-    console.log(_msg);
-  
-    res.send({ msg: _msg });
+    let _msg = `Node/Express testdb- 1.0.1 `;
+
+    try {
+     
+        console.log(_msg);
+        res.send({ msg: _msg });   
+        
+    } catch (error) {
+        console.log("## testdb1::error ")
+        console.log(error)    
+    }
 });
   
 app.get("/test3/:id", (req, res) => {
