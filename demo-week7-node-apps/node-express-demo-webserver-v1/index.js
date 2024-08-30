@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const {login, insert_user} = require("./dbutil");
 
 const app = express();
 
@@ -39,10 +40,20 @@ app.get("/test2", (req, res) => {
 
 app.get("/testdb1", (req, res) => {
   
-    let _msg = `Node/Express testdb- 1.0.1 `;
+    let _msg = `Node/Express testdb- 1.0.2 `;
 
     try {
      
+        const _username = "demouser1";
+        const _password = "pwd1";
+
+        _msg = "** login successful";
+
+        if(login(_username, _password))
+        {
+            _msg = "** unvalid login";
+        }
+
         console.log(_msg);
         res.send({ msg: _msg });   
         
@@ -62,27 +73,26 @@ app.get("/test3/:id", (req, res) => {
 });
 
 app.get("/login/:username/:password", (req, res) => {
-  const _username = req.params.username;
-  const _password = req.params.password;
+    
+    const _username = req.params.username;
+    const _password = req.params.password;
 
-  //let _msg = `login route, username: ${_username}, password: ${_password}`;
-  //console.log(_msg);
+    //let _msg = `login route, username: ${_username}, password: ${_password}`;
+    //console.log(_msg);
 
-  let _data = {};
+    let _data = {};
 
-  _msg = "* login successful";
-  _data = { msg: _msg, login: true };
+    _msg = "* login successful";
+    _data = { msg: _msg, login: true };
+  
+    if(!login(_username, _password))
+    {
+            _msg = "* invalid username/password";
+            _data = { msg: _msg, login: false };
+    }
 
-  if (
-    _username === null ||
-    _username === undefined ||
-    _username.trim().toLowerCase() !== "admin"
-  ) {
-    _msg = "* invalid username/password";
-    _data = { msg: _msg, login: false };
-  }
+    res.send(_data);
 
-  res.send(_data);
 });
 
 app.post("/register", (req, res) => {

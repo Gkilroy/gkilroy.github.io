@@ -1,11 +1,11 @@
-//-- testdb-1.js --- 
+//-- testdb_select1-1.js --- 
 
 //import sqlitedb
 const sqlite3 = require("sqlite3").verbose();
 
-function testdb_insert1(username, password)
+function testdb_select1(username, password)
 {
-    const _funnction_name = "testdb1";
+    const _funnction_name = "testdb_select";
     let _msg = "";
     let _return = false;
 
@@ -29,21 +29,29 @@ function testdb_insert1(username, password)
         const _uid = username;
         const _pwd = password;
 
-        db.run(`INSERT INTO user(username,password) VALUES('${_uid}','${_pwd}')`,(err)=>{
+        db.get(`SELECT id,username FROM user where username=? and password = ? `,[_uid, _pwd],(err, row)=>{
             if(err){
-                _msg = "## insert error";
+                _msg = "## select user error";
                 console.log(_msg);
                 //console.log(err);
-
                 _return = false;
             }
             else
             {
-                _msg = `## new userid: ${this.id}`;
-                //_msg = `## new userid: ${this.lastID}`;
-                console.log(_msg);
+                if(row)
+                {
+                    _msg = `##  user: ${row.id} - ${row.username}`;
+                    console.log(_msg);
+                    _return = true;
+                }
+                else
+                {
+                    _msg = `** user not found `;
+                    console.log(_msg);
+                    _return = false;
+                }
                 
-                _return = true;
+                
             }
         });
 
@@ -72,7 +80,7 @@ function testdb_insert1(username, password)
     return _return;
 }
 
-const uid = "demouser5";
-const pwd = "pwd5";
+const uid = "demouser1";
+const pwd = "pwd1";
 
-testdb_insert1(uid,pwd);
+testdb_select1(uid,pwd);
